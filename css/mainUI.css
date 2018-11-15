@@ -46,11 +46,11 @@ body {
 .main-text-type {
 	font-family: "楷体";
 	color: #ffffff !important;
-	opacity: 0.8 !important;
+	opacity: 0.8;
 }
 
 .main-text-type:hover {
-	opacity: 1 !important;
+	opacity: 1;
 }
 
 .main-top-bottom {

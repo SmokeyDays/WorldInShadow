@@ -5,7 +5,7 @@
 	</head>
 	<body>
 		<?php
-		header("Location: /main.html");
+		header("Location: http://SmokeyDays.top/WorldInShadow/main.html");
 		exit();
 		?>
 	</body>

@@ -11,6 +11,7 @@ var showText = {
 	printMessage: function(message){
 		var text = $('<div>').addClass('message-text').addClass('main-text-type').css('opacity', '0').text(message).prependTo('div#message-box');
 		text.animate({opacity: 0.8}, 500, 'linear', function() {
+			$(this).removeAttr('style');
 			showText.clearHidden();
 		});
 		text.removeAttr('style');
@@ -32,7 +33,6 @@ var showText = {
 		}
 		var eventDesc = $('<div>').addClass('main-text-type').addClass('event-desc').text(eventOptions.desc).prependTo(eventBlock);
 		var eventTitle = $('<div>').addClass('event-title').text(eventOptions.title).prependTo(eventBlock);
-		eventBlock.animate({opacity: 1},1000,'linear',function() {});
-		eventBlock.removeAttr('style');
+		eventBlock.animate({opacity: 1},1000,'linear',function() {$(this).removeAttr('style')});
 	}
 }
