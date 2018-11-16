@@ -5,6 +5,7 @@ var gameCore = {
 		showText.init();
 		eventList.init();
 		$("#start-game-option").text("重启游戏");
+		eventReader.excuteEvent('first-event');
 	},
 	throwNoEventError: function() {
 		showText.printMessage("Error: 事件不存在。");

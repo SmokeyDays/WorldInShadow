@@ -1,4 +1,21 @@
 var startEvent = {
+	'first-event': {
+		id: "first-event",
+		title: "这是哪儿？",
+		desc: "四周是茂盛的森林。潮湿的空气钻入你的鼻孔，你感觉到了腐烂的气味。意识逐渐清晰起来……",
+		logs: "周围的森林很茂密。",
+		optionList: [
+			{
+				id: "before-findDrink",
+				title: "我的嘴巴就像被烤过了一样，",
+				desc: "你感觉到非常口渴。",
+				logs: "意识逐渐清晰。",
+				eventList: [
+					'before-findDrink'
+				]
+			}
+		]
+	},
 	'before-findDrink': {
 		id: "before-findDrink",
 		title: "口渴难耐",
