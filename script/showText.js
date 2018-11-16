@@ -21,18 +21,20 @@ var showText = {
 	id: String,事件的id。**
 	title: String,事件的标题。
 	desc: String,事件的描述。
-	optionList: String arg[],事件的选项列表。**
+	logs: String,事件输出到左侧日志区的内容。
+	optionList: String arg[],事件的选项列表。
 	*/
 	printEventBlock: function(eventOptions) {
 		var eventBlock = $('<div>').addClass('event-block').css('opacity','0').prependTo('div#event-box');
 		if(typeof eventOptions.optionList !== 'undefined'){
-			for(var X in eventOptions.optionList){
+			for(var X=eventOptions.optionList.length-1;X>=0;--X){
 				var nowOption = new showButton.printEventButton(eventOptions.optionList[X]);
 				nowOption.prependTo(eventBlock);
 			}
 		}
 		var eventDesc = $('<div>').addClass('main-text-type').addClass('event-desc').text(eventOptions.desc).prependTo(eventBlock);
 		var eventTitle = $('<div>').addClass('event-title').text(eventOptions.title).prependTo(eventBlock);
+		showText.printMessage(eventOptions.logs);
 		eventBlock.animate({opacity: 1},1000,'linear',function() {$(this).removeAttr('style')});
 	}
 }

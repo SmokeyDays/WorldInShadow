@@ -4,9 +4,9 @@ var showButton = {
 	id: String,选项的id。**
 	title: String,选项显示的文字。
 	desc: String,选项悬停时显示的提示。**
+	logs: String,选项点击后输出到日志区的文字。
 	eventList: Function args,选项执行的时间列表。
 	functionList: Function args,选项执行的函数列表。
-	
 	*/
 	printEventButton: function(buttonOptions){
 		var eventOption = $('<div>')
@@ -39,6 +39,7 @@ var showButton = {
 		}
 		eventOption.click(function() {
 			if(!$(this).hasClass('event-option-disabled')) {
+				showText.printMessage(buttonOptions.logs);
 				var eventBlock = $(this).parent();
 				eventBlock.animate({opacity: 0 },500,'linear',function() {
 					eventBlock.detach();
