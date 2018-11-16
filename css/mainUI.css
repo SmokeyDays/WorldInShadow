@@ -115,3 +115,7 @@ body {
 	height: 100%;
 	overflow: auto;
 }
+
+.main-body-display::-webkit-scrollbar {
+	width: 10px;
+}
