@@ -12,22 +12,6 @@ var showButton = {
 		var eventOption = $('<div>')
 		.addClass('event-option')
 		.addClass('event-option-shadow')
-		.click(function() {
-			if(!$(this).hasClass('event-option-disabled')) {
-				if(typeof $(this).data('handlerNumber') !== 'undefined'){
-					for(var X=0;X<'handlerNumber';++X){
-						$(this).data("handler_"+X);
-					}
-				}
-				if(typeof $(this).data('eventNumber') !== 'undefined'){
-					for(var X=0;X<'eventNumber';++X){
-						eventReader.excuteEvent($(this).data("event_"+X));
-					}
-				}
-			}
-			var eventBlock = $(this).parent();
-			eventBlock.animate({opacity: 0 },500,'linear',function() {eventBlock.remove()});
-		})
 		.text(buttonOptions.title);
 		if(typeof buttonOptions.functionList !== 'undefined'){
 			if(buttonOptions.functionList.length > 0){
@@ -53,6 +37,25 @@ var showButton = {
 				eventOption.data('eventNumber',buttonOptions.eventList.length);
 			}
 		}
+		eventOption.click(function() {
+			if(!$(this).hasClass('event-option-disabled')) {
+				var eventBlock = $(this).parent();
+				eventBlock.animate({opacity: 0 },500,'linear',function() {
+					eventBlock.detach();
+					if(typeof eventOption.data('handlerNumber') !== 'undefined'){
+						for(var X=0;X<eventOption.data('handlerNumber');++X){
+							eventOption.data("handler_"+X);
+						}
+					}
+					if(typeof eventOption.data('eventNumber') !== 'undefined'){
+						for(var X=0;X<eventOption.data('eventNumber');++X){
+							eventReader.excuteEvent(eventOption.data("event_"+X));
+						}
+					}
+					eventBlock.remove();
+				});
+			}
+		})
 		return eventOption;
 	}
 }

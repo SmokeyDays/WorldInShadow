@@ -1,9 +1,9 @@
 var eventReader = {
-	eventStack = [],
 	excuteEvent: function(newEvent) {
-		
-	},
-	activeEvent: function() {
-		return eventReader.eventStack[0];
+		if(typeof newEvent !== 'undefined'){
+			showText.printEventBlock(eventList.list[newEvent]);
+		}else{
+			gameCore.throwNoEventError();
+		}
 	}
 }
