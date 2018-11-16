@@ -1,7 +1,11 @@
 var showText = {
 	init: function() {
-		var mainBodyCommand = $('<div>')
-	}
+		var mainBody = $('<div>').addClass('main-body').appendTo('body');
+		var mainBodyCommand = $('<div>').addClass('main-body-command').addClass('main-shadow').attr('id','message-box').appendTo(mainBody);
+		var mainBodyCommandOn = $('<div>').addClass('main-body-command-on').appendTo(mainBody);
+		var mainBodyDisplay = $('<div>').addClass('main-body-display').addClass('main-alpha-shadow').attr('id','event-box').appendTo(mainBody);
+	},
+	
 	clearHidden: function() {
 		var bottom = $('.main-body-command').position().top + $('.main-body-command').outerHeight(true);
 		$('.main-body-command').each(function() {
@@ -28,6 +32,10 @@ var showText = {
 	optionList: String arg[],事件的选项列表。
 	*/
 	printEventBlock: function(eventOptions) {
+		if(typeof eventOptions === 'undefined'){
+			gameCore.throwNoEventError();
+			return;
+		}
 		var eventBlock = $('<div>').addClass('event-block').css('opacity','0').prependTo('div#event-box');
 		if(typeof eventOptions.optionList !== 'undefined'){
 			for(var X=eventOptions.optionList.length-1;X>=0;--X){

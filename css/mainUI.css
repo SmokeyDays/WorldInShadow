@@ -16,6 +16,37 @@ body {
 	width: 80%;
 }
 
+.main-option {
+	margin-top: 4px;
+	margin-left: 10px;
+	margin-right: 10px;
+	padding-left: 8px;
+	padding-right: 8px;
+	padding-top: 4px;
+	padding-bottom: 4px;
+	background: white;
+	border-radius: 5px;
+	font-size: 13px;
+	width: auto;
+	text-align: center;
+	float: left;
+}
+
+.main-option:active {
+	background: gray;
+}
+
+.main-option-shadow {
+	box-shadow: 4px 4px 10px #dd4444 !important;
+}
+
+.main-option-shadow:hover {
+	box-shadow: 4px 4px 20px #44dd44 !important;
+}
+
+.main-option-shadow:active {
+	box-shadow: 0px 0px 0px #44dd44 !important;
+}
 .main-top {
 	
 }

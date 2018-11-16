@@ -35,8 +35,13 @@
 		}
 */
 var eventList = {
-	list: [].concat(
-		startEvent.list
-	)
+	list: {},
+	init: function() {
+		list = $.extend(
+			this.list,
+			startEvent,
+			testEvent
+		);
+	}
 };
 
