@@ -1,4 +1,7 @@
 var showText = {
+	init: function() {
+		var mainBodyCommand = $('<div>')
+	}
 	clearHidden: function() {
 		var bottom = $('.main-body-command').position().top + $('.main-body-command').outerHeight(true);
 		$('.main-body-command').each(function() {
@@ -12,7 +15,7 @@ var showText = {
 		var text = $('<div>').addClass('message-text').addClass('main-text-type').css('opacity', '0').text(message).prependTo('div#message-box');
 		text.animate({opacity: 0.8}, 500, 'linear', function() {
 			$(this).removeAttr('style');
-			showText.clearHidden();
+			//showText.clearHidden();
 		});
 		text.removeAttr('style');
 	},
