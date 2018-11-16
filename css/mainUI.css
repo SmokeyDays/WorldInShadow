@@ -81,7 +81,11 @@ body {
 	position: absolute;
 	width: 26%;
 	height: 100%;
-	overflow: hidden;
+	overflow: auto;
+}
+
+.main-body-command::-webkit-scrollbar {
+	width: 10px;
 }
 
 .main-body-command-on {
@@ -90,9 +94,8 @@ body {
 	display: block;
 	z-index: 21474836;
 	position: absolute;
-	top: 0px;
 	float: left;
-	width: 100%;
+	width: 26%;
 	height: 100%;
 	pointer-events: none;
 }
