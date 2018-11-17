@@ -11,8 +11,8 @@ body {
 	background: #6f6f6f;
 	padding-left: 3em;
 	padding-right: 3em;
-	padding-top: 2em;
-	padding-bottom: 2em;
+	padding-top: 16px;
+	padding-bottom: 16px;
 	width: 80%;
 }
 
@@ -97,11 +97,12 @@ body {
 
 .main-body {
 	position: absolute;
-	margin-top: 1em;
+	margin-top: 32px;
+	margin-bottom: 16px;
 	height: 600px;
 	width: 100%;
-	padding-top: 32px;
-	padding-bottom: 32px;
+	padding-top: 16px;
+	padding-bottom: 16px;
 	padding-left: 16px;
 	padding-right: 16px;
 }
