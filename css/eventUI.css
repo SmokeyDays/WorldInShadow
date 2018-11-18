@@ -56,9 +56,40 @@
 	text-align: center;
 	cursor: pointer;
 }
-
+.event-option:hover::before {
+	position: relative;
+	content: "[";
+	left: -2px;
+}
+.event-option:hover::after {
+	position: relative;
+	content: "]";
+	right: -2px;
+}
 .event-option:active {
 	background: gray;
+}
+
+.event-option-desc {
+	display: none;
+	padding: 2px 2px;
+	position: absolute;
+	border: 2px solid white;
+	box-shadow: 2px 2px 8px #ffffff;
+	background: black;
+	font-size: 13px;
+	font-family: "Times New Roman", Times, serif;
+	font-style: italic;
+	color: #bbbbbb;
+	z-index: 999;
+}
+
+.event-option:hover > .event-option-desc {
+	display: block;
+}
+
+.event-option-desc:hover {
+	display: none !important;
 }
 
 .event-desc {

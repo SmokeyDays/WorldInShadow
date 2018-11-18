@@ -12,7 +12,7 @@ var showButton = {
 		var eventOption = $('<div>')
 		.addClass('event-option')
 		.addClass('event-option-shadow')
-		.text(buttonOptions.title);
+		.text(buttonOptions.title)
 		if(typeof buttonOptions.functionList !== 'undefined'){
 			if(buttonOptions.functionList.length > 0){
 				for(var X in buttonOptions.functionList){
@@ -39,7 +39,6 @@ var showButton = {
 		}
 		eventOption.click(function() {
 			if(!$(this).hasClass('event-option-disabled')) {
-				showText.printMessage(buttonOptions.logs);
 				var eventBlock = $(this).parent();
 				eventBlock.animate({opacity: 0 },500,'linear',function() {
 					eventBlock.detach();
@@ -53,10 +52,17 @@ var showButton = {
 							eventReader.excuteEvent(eventOption.data("event_"+X));
 						}
 					}
+					showText.printMessage(buttonOptions.logs);
 					eventBlock.remove();
 				});
 			}
 		})
+		if(typeof buttonOptions.desc !== 'undefined'){
+			var eventOptionDescription = $('<div>')
+			.addClass('event-option-desc')
+			.text(buttonOptions.desc)
+			.appendTo(eventOption);
+		}
 		return eventOption;
 	}
 }
