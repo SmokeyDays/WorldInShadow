@@ -106,7 +106,7 @@ var startEvent = {
 			{
 				id: "findOtherFruits",
 				title: "还是找找周围有什么其他水果吧。",
-				desc: "尝试去寻找浆果之外的其他水果。"
+				desc: "尝试去寻找浆果之外的其他水果。",
 				logs: "你试图去寻找其他水果。"
 				
 			},
