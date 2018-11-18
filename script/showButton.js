@@ -7,8 +7,17 @@ var showButton = {
 	logs: String,选项点击后输出到日志区的文字。
 	eventList: Function args,选项执行的时间列表。
 	functionList: Function args,选项执行的函数列表。
+	conditionList: 选项显示需要的条件列表。
+	conditionEventList: 某个事件需要的条件列表。
 	*/
 	printEventButton: function(buttonOptions){
+		if(typeof buttonOptions.conditionList !== 'undefined'){
+			for(var X in buttonOptions.conditionList){
+				if(!judgeConditions.judge(buttonOptions.conditionList[X])){
+					return;
+				}
+			}
+		}
 		var eventOption = $('<div>')
 		.addClass('event-option')
 		.addClass('event-option-shadow')
@@ -33,6 +42,11 @@ var showButton = {
 					buttonOptions.eventList[X] :
 					function() {gameCore.throwNoEventError()
 					});
+					eventOption.data("eventCondition_"+X,
+					(typeof buttonOptions.conditionEventList !=='undefined'&&typeof buttonOptions.conditionEventList[X] !=='undefined') ?
+					buttonOptions.conditionEventList[X] :
+					true
+					);
 				}
 				eventOption.data('eventNumber',buttonOptions.eventList.length);
 			}
@@ -42,6 +56,7 @@ var showButton = {
 				var eventBlock = $(this).parent();
 				eventBlock.animate({opacity: 0 },500,'linear',function() {
 					eventBlock.detach();
+					showText.printMessage(buttonOptions.logs);
 					if(typeof eventOption.data('handlerNumber') !== 'undefined'){
 						for(var X=0;X<eventOption.data('handlerNumber');++X){
 							eventOption.data("handler_"+X);
@@ -49,14 +64,18 @@ var showButton = {
 					}
 					if(typeof eventOption.data('eventNumber') !== 'undefined'){
 						for(var X=0;X<eventOption.data('eventNumber');++X){
-							eventReader.excuteEvent(eventOption.data("event_"+X));
+							if((typeof eventOption.data("eventCondition_"+X) === 'boolean')?
+							eventOption.data("eventCondition_"+X) :
+							judgeConditions.judge(eventOption.data("eventCondition_"+X))){
+								eventReader.excuteEvent(eventOption.data("event_"+X));
+							}
 						}
 					}
 					eventBlock.remove();
 				});
-				setTimeout(showText.printMessage(buttonOptions.logs),500);
+				
 			}
-		})
+		});
 		if(typeof buttonOptions.desc !== 'undefined'){
 			var eventOptionDescription = $('<div>')
 			.addClass('event-option-desc')
