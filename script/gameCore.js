@@ -4,6 +4,7 @@ var gameCore = {
 		oldBody.remove();
 		showText.init();
 		eventList.init();
+		characterInfomation.init();
 		$("#start-game-option").text("重启游戏");
 		eventReader.excuteEvent('first-event');
 	},
