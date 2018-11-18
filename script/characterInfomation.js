@@ -1,11 +1,16 @@
 var characterInfomation = {
-	attribute = [
-	
-	],
-	var points = {
+	attribute: {
+		'physicalTalent': 0,
+		'directionTalent': 0
+	},
+	points: {
 		
-	}
-	var items = {
+	},
+	items: {
 		
+	},
+	init: function() {
+		characterInfomation.attribute.physicalTalent = 2+8*Math.random();
+		characterInfomation.attribute.directionTalent = 2+8*Math.random();
 	}
 }
