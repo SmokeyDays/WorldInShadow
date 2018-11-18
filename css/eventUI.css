@@ -54,6 +54,7 @@
 	border-radius: 5px;
 	font-size: 13px;
 	text-align: center;
+	cursor: pointer;
 }
 
 .event-option:active {

@@ -7,19 +7,21 @@ var showText = {
 	},
 	
 	clearHidden: function() {
+		/*
 		var bottom = $('.main-body-command').position().top + $('.main-body-command').outerHeight(true);
 		$('.main-body-command').each(function() {
 			if($(this).position().top > bottom){
 				$(this).remove();
 			}
 		});
+		*/
+		$('.message-text').remove();
 	},
 	
 	printMessage: function(message){
 		var text = $('<div>').addClass('message-text').addClass('main-text-type').css('opacity', '0').text(message).prependTo('div#message-box');
 		text.animate({opacity: 0.8}, 500, 'linear', function() {
 			$(this).removeAttr('style');
-			//showText.clearHidden();
 		});
 		text.removeAttr('style');
 	},

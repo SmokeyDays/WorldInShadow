@@ -4,6 +4,7 @@
 	<meta charset="utf-8">
 	<script src="script/events/startEvent.js"></script>
 	<script src="script/events/testEvent.js"></script>
+	<script src="script/events/endEvent.js"></script>
 	<script src="script/gameCore.js"></script>
 	<script src="source/jquery.min.js"></script>
 	<script src="script/showText.js"></script>
@@ -27,6 +28,14 @@
 		.text("开始游戏")
 		.click(function(){
 			gameCore.startGame()
+		})
+		.appendTo('.main-top');
+		var clearHiddenButton = $('<div>')
+		.addClass('main-option')
+		.addClass('main-option-shadow')
+		.text('清理日志区')
+		.click(function(){
+			showText.clearHidden()
 		})
 		.appendTo('.main-top');
 	</script>

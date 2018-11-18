@@ -40,7 +40,8 @@ var eventList = {
 		list = $.extend(
 			this.list,
 			startEvent,
-			testEvent
+			testEvent,
+			endEvent
 		);
 	}
 };

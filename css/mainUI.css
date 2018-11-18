@@ -30,6 +30,7 @@ body {
 	width: auto;
 	text-align: center;
 	float: left;
+	cursor: pointer;
 }
 
 .main-option:active {
@@ -78,6 +79,7 @@ body {
 	font-family: "楷体";
 	color: #ffffff !important;
 	opacity: 0.8;
+	cursor: pointer;
 }
 
 .main-text-type:hover {
