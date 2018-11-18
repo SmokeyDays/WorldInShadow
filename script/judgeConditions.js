@@ -15,5 +15,6 @@ var judgeConditions = {
 			gameCore.throwNoConditionDefineError();
 			return;
 		}
+		return conditionList.list[conditions.type](conditions.info);
 	}
 }

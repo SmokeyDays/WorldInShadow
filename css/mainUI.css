@@ -1,9 +1,7 @@
-
-@import url(/fonts/clear-sans.css);
-
 * {
 	margin: 0;
 	padding: 0;
+    transition: all linear .125s 0s;
 }
 
 body {
