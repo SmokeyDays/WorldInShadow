@@ -7,7 +7,7 @@ var characterInfomation = {
 		
 	},
 	items: {
-		
+		'water': 0
 	},
 	init: function() {
 		characterInfomation.attribute.physicalTalent = 2+8*Math.random();

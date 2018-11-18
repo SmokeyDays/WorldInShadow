@@ -12,7 +12,7 @@ var startEvent = {
 				logs: "意识逐渐清晰。",
 				eventList: [
 					'before-findDrink'
-				]
+				],
 			}
 		]
 	},

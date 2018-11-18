@@ -21,7 +21,13 @@ var gameCore = {
 	throwNoConditionDefineError: function() {
 		showText.printMessage("Error: 未指定条件。");
 	},
+	throwNoConditionInfoError: function() {
+		showText.printMessage("Error：未指定合法参数");
+	},
 	throwItemListNumberError: function() {
 		showText.printMessage("Error: 列表的项目不匹配。");
+	},
+	throwNoAttributeError: function() {
+		showText.printMessage("Error: 指定的属性类型不存在。")
 	}
 }
