@@ -52,9 +52,9 @@ var showButton = {
 							eventReader.excuteEvent(eventOption.data("event_"+X));
 						}
 					}
-					showText.printMessage(buttonOptions.logs);
 					eventBlock.remove();
 				});
+				setTimeout(showText.printMessage(buttonOptions.logs),500);
 			}
 		})
 		if(typeof buttonOptions.desc !== 'undefined'){
