@@ -12,7 +12,7 @@ var startEvent = {
 				logs: "意识逐渐清晰。",
 				eventList: [
 					'before-findDrink'
-				],
+				]
 			}
 		]
 	},
@@ -61,7 +61,10 @@ var startEvent = {
 				id: "tryWetDirt",
 				title: "泥土比较潮湿，也许掘地三尺会有地下水。",
 				desc: "你尝试着挖一个坑。",
-				logs: "你尝试挖一个坑来寻找地下水。"
+				logs: "你尝试挖一个坑来寻找地下水。",
+				eventList: [
+					'findDrink-tryBuildWells'
+				]
 			},
 			{
 				id: "observeAround",
@@ -98,12 +101,13 @@ var startEvent = {
 				id: "tryTheFruit",
 				title: "那就试着去摘它吧。",
 				desc: "尝试爬上树去摘浆果。",
-				
+				logs: "你尝试爬树，体会到了当猴子的快感。"
 			},
 			{
 				id: "findOtherFruits",
 				title: "还是找找周围有什么其他水果吧。",
-				desc: "尝试去寻找浆果之外的其他水果。"
+				desc: "尝试去寻找浆果之外的其他水果。",
+				logs: "你试图去寻找其他水果。"
 				
 			},
 			{
@@ -116,5 +120,55 @@ var startEvent = {
 				]
 			}
 		]
+	},
+	'findDrink-tryBuildWells': {
+		id: "findDrink-tryBuildWells",
+		title: "浑浊的井水",
+		desc: "你挖开了约一米深的圆锥形水坑，但是由于你没有办法固定坑壁松软的泥土，所以水和泥土一起落到了水坑中。",
+		logs: "你徒手刨出了一个坑，你累并快乐着。",
+		optionList: [
+			{
+				id: "drinkDirectly",
+				title: "算了，吃土就吃土，不碍事，将就着喝吧。",
+				desc: "真的猛士敢于饮下浑浊的泥浆！",
+				logs: "你勇敢的喝下了这看起来很浑浊的水。"
+				
+			},
+			{
+				id: "findStones",
+				title: "有点脏啊，去周围看看有没有可以固定坑壁的石料吧。",
+				desc: "尝试去寻找石料。",
+				logs: "你决定去寻找一些适合的石料。",
+				eventList: [
+					'findDrink-tryBuildWells-findStone',
+					'findDrink-tryBuildWells-findStoneBlock',
+					'findDrink-tryBuildWells-findNothing'
+				]
+			},
+			{
+				id: "buildWells",
+				title: "我想可以用收集到的一些东西固定一下。",
+				desc: "在当前位置建一口井。",
+				logs: "水井里的水终于不是那么浑浊了。"
+			},
+			{
+				id: "findDrink",
+				title: "这水一看就不能喝，还是试试其他方法吧。",
+				desc: "尝试其他可以解渴的方法。",
+				logs: "你决定试试其他可以解渴的方法。",
+				eventList: [
+					'findDrink'
+				]
+			}
+		]
+	},
+	'findDrink-tryBuildWells-findStone': {
+		title: "找到石料"
+	},
+	'findDrink-tryBuildWells-findStoneBlock': {
+		title: "找到石砖"
+	},
+	'findDrink-tryBuildWells-findNothing': {
+		title: "野外求生不需要视力"
 	}
 }
