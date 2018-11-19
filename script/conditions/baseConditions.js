@@ -1,22 +1,20 @@
 var baseConditions = {
 	list: {
 		or: function(conditions) {
-			var orRT=false;
 			for(var X in conditions.info){
 				if(judgeConditions.judge(conditions.info[X])){
-					orRT=true;
+					return true;
 				}
 			}
-			return orRT;
+			return false;
 		},
 		and: function(conditions) {
-			var andRT=true;
 			for(var X in conditions.info){
 				if(!judgeConditions.judge(conditions.info[X])){
-					andRT=false;
+					return false;
 				}
 			}
-			return andRT;
+			return true;
 		},
 		not: function(conditions){
 			return !judgeConditions.judge(conditions.info);
@@ -30,17 +28,54 @@ var baseConditions = {
 				gameCore.throwItemListNumberError();
 				return;
 			}
-			var attrRT = true;
 			for(var X in conditions.name){
 				if(typeof characterInfomation.attribute[conditions.name] === 'undefined'){
 					gameCore.throwNoAttributeError();
 				}
 				if(!(characterInfomation.attribute[conditions.name[X]] > conditions.value[X])){
-					attrRT = false;
+					return false;
 				}
 				
 			}
 			return attrRT;
+		}
+		point: function(conditions){
+			if(typeof conditions.name === 'undefined'||typeof conditions.value === 'undefined'||conditions.name.length === 0){
+				gameCore.throwNoConditionInfoError();
+				return;
+			}
+			if(conditions.name.length !== conditions.value.length){
+				gameCore.throwItemListNumberError();
+				return;
+			}
+			for(var X in conditions.name){
+				if(typeof characterInfomation.point[conditions.name] === 'undefined'){
+					gameCore.throwNoPointError();
+				}
+				if(!(characterInfomation.point[conditions.name[X]] > conditions.value[X])){
+					return false;
+				}
+			}
+			return true;
+		},
+		point: function(conditions){
+			if(typeof conditions.name === 'undefined'||typeof conditions.value === 'undefined'||conditions.name.length === 0){
+				gameCore.throwNoConditionInfoError();
+				return;
+			}
+			if(conditions.name.length !== conditions.value.length){
+				gameCore.throwItemListNumberError();
+				return;
+			}
+			for(var X in conditions.name){
+				if(typeof characterInfomation.point[conditions.name] === 'undefined'){
+					return false;
+				}
+				if(!(characterInfomation.point[conditions.name[X]] > conditions.value[X])){
+					return false;
+				}
+			}
+			return true;
 		}
 	}
 }

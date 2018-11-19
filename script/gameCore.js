@@ -28,6 +28,9 @@ var gameCore = {
 		showText.printMessage("Error: 列表的项目不匹配。");
 	},
 	throwNoAttributeError: function() {
-		showText.printMessage("Error: 指定的属性类型不存在。")
+		showText.printMessage("Error: 指定的属性类型不存在。");
+	},
+	throwNoPointError: function() {
+		showText.printMessage("Error: 指定的点数类型不存在。");
 	}
 }
