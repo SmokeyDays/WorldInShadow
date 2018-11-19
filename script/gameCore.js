@@ -15,8 +15,8 @@ var gameCore = {
 	throwNoFunctionError: function() {
 		showText.printMessage("Error: 函数不存在。");
 	},
-	throwNoConditionTypeError: function() {
-		showText.printMessage("Error: 指定的条件不存在。");
+	throwNoConditionTypeError: function(condition) {
+		showText.printMessage("Error: 指定的条件：[ "+condition+" ]不存在。");
 	},
 	throwNoConditionDefineError: function() {
 		showText.printMessage("Error: 未指定条件。");

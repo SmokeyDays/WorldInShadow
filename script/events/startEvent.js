@@ -125,7 +125,7 @@ var startEvent = {
 		id: "findDrink-tryBuildWells",
 		title: "浑浊的井水",
 		desc: "你挖开了约一米深的圆锥形水坑，但是由于你没有办法固定坑壁松软的泥土，所以水和泥土一起落到了水坑中。",
-		logs: "你徒手刨出了一个坑，你累并快乐着。",
+		logs: "你挖开了一个土坑，",
 		optionList: [
 			{
 				id: "drinkDirectly",
@@ -140,9 +140,50 @@ var startEvent = {
 				desc: "尝试去寻找石料。",
 				logs: "你决定去寻找一些适合的石料。",
 				eventList: [
-					'findDrink-tryBuildWells-findStone',
 					'findDrink-tryBuildWells-findStoneBlock',
+					'findDrink-tryBuildWells-findStone',
 					'findDrink-tryBuildWells-findNothing'
+				],
+				conditionEventList: [
+					{
+						type: 'attr',
+						info: {
+							name: ['directionTalent'],
+							value: [9]
+						}
+					},
+					{
+						type: 'and',
+						info: [
+						{
+							type: 'not',
+							info: {
+								type: 'attr',
+								info: {
+									name: ['directionTalent'],
+									value: [9]
+								}
+							}
+						},
+						{
+							type: 'attr',
+							info: {
+								name: ['directionTalent'],
+								value: [4]
+							}
+						}
+						]
+					},
+					{
+						type: 'not',
+						info: {
+							type: 'attr',
+							info: {
+								name: ['directionTalent'],
+								value: [4]
+							}
+						}
+					}
 				]
 			},
 			{
@@ -163,12 +204,18 @@ var startEvent = {
 		]
 	},
 	'findDrink-tryBuildWells-findStone': {
-		title: "找到石料"
+		title: "找到石料",
+		desc: "你在周围走了一圈，观察到了一些石头散落在地面上。你并不知道它们是哪里来的，但你觉得打磨一下可能就可以用来收集水了。",
+		logs: "你找到了一些坚硬的中等大小的石头。"
 	},
 	'findDrink-tryBuildWells-findStoneBlock': {
-		title: "找到石砖"
+		title: "找到石砖",
+		desc: "你一眼就发现了不远处躺着的石砖。石砖散落在森林里堆积的腐烂树叶上，显得那么显眼。石砖很平整，可以直接拿来使用，但你对这种似乎是非自然的物品感到了一丝诡异。",
+		logs: "你找到了一些平整的石砖。"
 	},
 	'findDrink-tryBuildWells-findNothing': {
-		title: "野外求生不需要视力"
+		title: "野外求生不需要视力",
+		desc: "你在周围搜索了一圈，但是周围的地面都被阴影遮蔽着。你害怕离泥坑太远会丢失方向，所以没有走远。但什么有用的东西都没有找到。",
+		logs: "你一无所获。"
 	}
 }

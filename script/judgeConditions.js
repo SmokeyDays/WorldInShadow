@@ -15,6 +15,10 @@ var judgeConditions = {
 			gameCore.throwNoConditionDefineError();
 			return;
 		}
+		if(typeof conditionList.list[conditions.type] === 'undefined'){
+			gameCore.throwNoConditionTypeError(conditions.type);
+			return;
+		}
 		return conditionList.list[conditions.type](conditions.info);
 	}
 }

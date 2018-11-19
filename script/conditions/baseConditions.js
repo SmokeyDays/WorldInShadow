@@ -17,7 +17,7 @@ var baseConditions = {
 			return true;
 		},
 		not: function(conditions){
-			return !judgeConditions.judge(conditions.info);
+			return !judgeConditions.judge(conditions);
 		},
 		attr: function(conditions){
 			if(typeof conditions.name === 'undefined'||typeof conditions.value === 'undefined'||conditions.name.length === 0){
@@ -37,7 +37,7 @@ var baseConditions = {
 				}
 				
 			}
-			return attrRT;
+			return true;
 		},
 		point: function(conditions){
 			if(typeof conditions.name === 'undefined'||typeof conditions.value === 'undefined'||conditions.name.length === 0){
@@ -58,7 +58,7 @@ var baseConditions = {
 			}
 			return true;
 		},
-		point: function(conditions){
+		item: function(conditions){
 			if(typeof conditions.name === 'undefined'||typeof conditions.value === 'undefined'||conditions.name.length === 0){
 				gameCore.throwNoConditionInfoError();
 				return;
@@ -68,10 +68,10 @@ var baseConditions = {
 				return;
 			}
 			for(var X in conditions.name){
-				if(typeof characterInfomation.point[conditions.name] === 'undefined'){
+				if(typeof characterInfomation.item[conditions.name] === 'undefined'){
 					return false;
 				}
-				if(!(characterInfomation.point[conditions.name[X]] > conditions.value[X])){
+				if(!(characterInfomation.item[conditions.name[X]] > conditions.value[X])){
 					return false;
 				}
 			}

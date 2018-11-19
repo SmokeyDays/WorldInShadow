@@ -42,7 +42,9 @@ var showText = {
 		if(typeof eventOptions.optionList !== 'undefined'){
 			for(var X=eventOptions.optionList.length-1;X>=0;--X){
 				var nowOption = new showButton.printEventButton(eventOptions.optionList[X]);
-				nowOption.prependTo(eventBlock);
+				if(typeof nowOption !== 'undefined'){
+					nowOption.prependTo(eventBlock);
+				}
 			}
 		}
 		var eventDesc = $('<div>').addClass('main-text-type').addClass('event-desc').text(eventOptions.desc).prependTo(eventBlock);
