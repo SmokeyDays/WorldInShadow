@@ -38,7 +38,7 @@ var baseConditions = {
 				
 			}
 			return attrRT;
-		}
+		},
 		point: function(conditions){
 			if(typeof conditions.name === 'undefined'||typeof conditions.value === 'undefined'||conditions.name.length === 0){
 				gameCore.throwNoConditionInfoError();
