@@ -55,6 +55,7 @@
 	font-size: 13px;
 	text-align: center;
 	cursor: pointer;
+	transition: all linear .125s 0s;
 }
 .event-option:hover::before {
 	position: relative;
