@@ -190,7 +190,7 @@ var startEvent = {
 				id: "buildWells",
 				title: "我想可以用收集到的一些东西固定一下。",
 				desc: "在当前位置建一口井。",
-				logs: "水井里的水终于不是那么浑浊了。"
+				logs: "你尝试建一口井。"
 			},
 			{
 				id: "findDrink",
