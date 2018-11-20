@@ -1,16 +1,27 @@
 var baseConditions = {
 	list: {
+		always: function(conditions) {
+			return true;
+		},
 		or: function(conditions) {
-			for(var X in conditions.info){
-				if(judgeConditions.judge(conditions.info[X])){
+			if(typeof conditions === 'undefined'){
+				gameCore.throwNoConditionInfoError();
+				return;
+			}
+			for(var X in conditions){
+				if(judgeConditions.judge(conditions[X])){
 					return true;
 				}
 			}
 			return false;
 		},
 		and: function(conditions) {
-			for(var X in conditions.info){
-				if(!judgeConditions.judge(conditions.info[X])){
+			if(typeof conditions === 'undefined'){
+				gameCore.throwNoConditionInfoError();
+				return;
+			}
+			for(var X in conditions){
+				if(!judgeConditions.judge(conditions[X])){
 					return false;
 				}
 			}
