@@ -1,81 +1,16 @@
 var baseFunctions = {
 	list: {
-		or: function(conditions) {
-			for(var X in conditions.info){
-				if(judgeConditions.judge(conditions.info[X])){
-					return true;
-				}
-			}
-			return false;
-		},
-		and: function(conditions) {
-			for(var X in conditions.info){
-				if(!judgeConditions.judge(conditions.info[X])){
-					return false;
-				}
-			}
-			return true;
-		},
-		not: function(conditions){
-			return !judgeConditions.judge(conditions);
-		},
-		attr: function(conditions){
-			if(typeof conditions.name === 'undefined'||typeof conditions.value === 'undefined'||conditions.name.length === 0){
-				gameCore.throwNoConditionInfoError();
+		itemAdd: function(functionInfo) {
+			if(typeof functionInfo === 'undefined'){
+				gameCore.throwNoFunctionInfoError();
 				return;
 			}
-			if(conditions.name.length !== conditions.value.length){
+			if(typeof functionInfo.name === 'undefined' || typeof functionInfo.value === 'undefined' || functionInfo.value.length !== functionInfo.name.length){
 				gameCore.throwItemListNumberError();
 				return;
 			}
-			for(var X in conditions.name){
-				if(typeof characterInfomation.attribute[conditions.name] === 'undefined'){
-					gameCore.throwNoAttributeError();
-				}
-				if(!(characterInfomation.attribute[conditions.name[X]] > conditions.value[X])){
-					return false;
-				}
-				
-			}
-			return true;
-		},
-		point: function(conditions){
-			if(typeof conditions.name === 'undefined'||typeof conditions.value === 'undefined'||conditions.name.length === 0){
-				gameCore.throwNoConditionInfoError();
-				return;
-			}
-			if(conditions.name.length !== conditions.value.length){
-				gameCore.throwItemListNumberError();
-				return;
-			}
-			for(var X in conditions.name){
-				if(typeof characterInfomation.point[conditions.name] === 'undefined'){
-					gameCore.throwNoPointError();
-				}
-				if(!(characterInfomation.point[conditions.name[X]] > conditions.value[X])){
-					return false;
-				}
-			}
-			return true;
-		},
-		item: function(conditions){
-			if(typeof conditions.name === 'undefined'||typeof conditions.value === 'undefined'||conditions.name.length === 0){
-				gameCore.throwNoConditionInfoError();
-				return;
-			}
-			if(conditions.name.length !== conditions.value.length){
-				gameCore.throwItemListNumberError();
-				return;
-			}
-			for(var X in conditions.name){
-				if(typeof characterInfomation.item[conditions.name] === 'undefined'){
-					return false;
-				}
-				if(!(characterInfomation.item[conditions.name[X]] > conditions.value[X])){
-					return false;
-				}
-			}
-			return true;
+			for(var X in functionInfo.name)
+			characterInfomation.items[functionInfo.name[X]] += functionInfo.value[X];
 		}
 	}
 }
