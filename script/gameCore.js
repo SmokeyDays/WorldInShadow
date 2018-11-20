@@ -6,6 +6,7 @@ var gameCore = {
 		eventList.init();
 		characterInfomation.init();
 		conditionList.init();
+		functionList.init();
 		$("#start-game-option").text("重启游戏");
 		eventReader.excuteEvent('first-event');
 	},
