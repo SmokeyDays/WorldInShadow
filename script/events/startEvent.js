@@ -148,7 +148,7 @@ var startEvent = {
 					{
 						type: 'attr',
 						info: {
-							name: ['directionTalent'],
+							name: ['observationAbility'],
 							value: [9]
 						}
 					},
@@ -160,7 +160,7 @@ var startEvent = {
 							info: {
 								type: 'attr',
 								info: {
-									name: ['directionTalent'],
+									name: ['observationAbility'],
 									value: [9]
 								}
 							}
@@ -168,7 +168,7 @@ var startEvent = {
 						{
 							type: 'attr',
 							info: {
-								name: ['directionTalent'],
+								name: ['observationAbility'],
 								value: [4]
 							}
 						}
@@ -179,7 +179,7 @@ var startEvent = {
 						info: {
 							type: 'attr',
 							info: {
-								name: ['directionTalent'],
+								name: ['observationAbility'],
 								value: [4]
 							}
 						}
