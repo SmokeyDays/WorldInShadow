@@ -15,10 +15,11 @@ physicalTalent:
 directionTalent:
 2~10
 方向感天赋是一个天生的值，但或许可以通过事件改进。它决定了角色在各种确定方向的行为中的收益。
-------
 
 directionSense:
 0~directionMax
 方向感上限是一个依据当前位置复杂度与方向感天赋计算得到的值。
 方向感是一个通过各种确定方向的行为与各种切换地区的行为得到的值。方向感过低会极大地增加迷路等不良事件的发生概率。
 
+observationAbiolity:
+2~10
