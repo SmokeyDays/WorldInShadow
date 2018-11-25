@@ -25,13 +25,19 @@ var showButton = {
 		if(typeof buttonOptions.functionList !== 'undefined'){
 			if(buttonOptions.functionList.length > 0){
 				for(var X in buttonOptions.functionList){
-					eventOption.data("handler_"+X,
-					typeof buttonOptions.functionList[X] === 'function' ?
+					eventOption.data("function_"+X,
+					typeof buttonOptions.functionList[X] !== 'undefined' ?
 					buttonOptions.functionList[X] :
 					function() {gameCore.throwNoFunctionError()
 					});
+					if(gameCore.DEBUG_MODE){
+						showText.printMessage("函数类型"+buttonOptions.functionList[X].type+"成功添加");
+					}
 				}
-				eventOption.data('handlerNumber',buttonOptions.functionList.length);
+				eventOption.data('functionNumber',buttonOptions.functionList.length);
+				if(gameCore.DEBUG_MODE){
+					showText.printMessage("共加载了"+eventOption.data('functionNumber')+"个函数")
+				}
 			}
 		}
 		if(typeof buttonOptions.eventList !== 'undefined'){
@@ -69,6 +75,12 @@ var showButton = {
 							judgeConditions.judge(eventOption.data("eventCondition_"+X))){
 								eventReader.excuteEvent(eventOption.data("event_"+X));
 							}
+						}
+					}
+					if(typeof eventOption.data('functionNumber') !== 'undefined'){
+						console.log("加载了",eventOption.data('functionNumber'),"个事件。");
+						for(var X=0;X<eventOption.data('functionNumber');++X){
+							functionReader.excuteFunction(eventOption.data("function_"+X));
 						}
 					}
 					eventBlock.remove();

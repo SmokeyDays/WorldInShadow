@@ -1,4 +1,5 @@
 var gameCore = {
+	DEBUG_MODE: false,
 	startGame: function() {
 		var oldBody = $('.main-body');
 		oldBody.remove();
@@ -33,5 +34,8 @@ var gameCore = {
 	},
 	throwNoPointError: function() {
 		showText.printMessage("Error: 指定的点数类型不存在。");
+	},
+	debug: function() {
+		gameCore.DEBUG_MODE = !gameCore.DEBUG_MODE;
 	}
 }

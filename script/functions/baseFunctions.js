@@ -35,11 +35,15 @@ var baseFunctions = {
 				return;
 			}
 			if(typeof functionInfo.name === 'undefined' || typeof functionInfo.value === 'undefined' || functionInfo.value.length !== functionInfo.name.length){
-				gameCore.throwPointListNumberError();
+				gameCore.throwItemListNumberError();
 				return;
 			}
-			for(var X in functionInfo.name)
-			characterInfomation.points[functionInfo.name[X]] += functionInfo.value[X];
-		}
+			for(var X in functionInfo.name){
+				if(typeof characterInfomation.points[functionInfo.name[X]] === 'undefined'){
+					gameCore.throwNoAttributeError();
+				}
+				characterInfomation.points[functionInfo.name[X]] += functionInfo.value[X];
+			}
+		},
 	}
 }

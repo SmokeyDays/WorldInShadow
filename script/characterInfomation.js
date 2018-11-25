@@ -5,7 +5,8 @@ var characterInfomation = {
 		'observationAbility': 0
 	},
 	points: {
-		
+		'water': 0,
+		'food': 0
 	},
 	items: {
 		'water': 0
