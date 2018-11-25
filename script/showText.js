@@ -49,7 +49,9 @@ var showText = {
 		}
 		var eventDesc = $('<div>'+eventOptions.desc+'</div>').addClass('main-text-type').addClass('event-desc').prependTo(eventBlock);
 		var eventTitle = $('<div>'+eventOptions.title+'</div>').addClass('event-title').prependTo(eventBlock);
-		showText.printMessage(eventOptions.logs);
+		if(typeof eventOptions.logs !== 'undefined'){
+			showText.printMessage(eventOptions.logs);
+		}
 		eventBlock.animate({opacity: 1},1000,'linear',function() {$(this).removeAttr('style')});
 	}
 }

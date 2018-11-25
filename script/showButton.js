@@ -61,7 +61,9 @@ var showButton = {
 				var eventBlock = $(this).parent();
 				eventBlock.animate({opacity: 0 },500,'linear',function() {
 					eventBlock.detach();
-					showText.printMessage(buttonOptions.logs);
+					if(typeof buttonOptions.logs !== 'undefined'){
+						showText.printMessage(buttonOptions.logs);
+					}
 					if(typeof eventOption.data('handlerNumber') !== 'undefined'){
 						for(var X=0;X<eventOption.data('handlerNumber');++X){
 							eventOption.data("handler_"+X);
