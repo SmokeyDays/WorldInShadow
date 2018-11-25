@@ -1,4 +1,4 @@
-var judgeFunctions = {
+var functionReader = {
 	/*
 	functions: 传入一串函数，表示某个选项随之执行的函数。
 		type: String,指定特殊的判定方式。
@@ -10,15 +10,15 @@ var judgeFunctions = {
 			 - or 指定一系列的判定列表，返回这个列表的值的或和。
 		info: 提供判定的信息。
 	*/
-	judge: function(functions){
+	excuteFunction: function(functions){
 		if(typeof functions === 'undefined'){
 			gameCore.throwNoFunctionDefineError();
 			return;
 		}
-		if(typeof conditionList.list[functions.type] === 'undefined'){
-			gameCore.throwNoFunctionTypeError(functions.type);
+		if(typeof functionList.list[functions.type] === 'undefined'){
+			gameCore.throwNoFunctionError(functions.type);
 			return;
 		}
-		return conditionList.list[functions.type](functions.info);
+		return functionList.list[functions.type](functions.info);
 	}
 }
