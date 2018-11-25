@@ -40,5 +40,26 @@ var testEvent = {
 				id: "老师，我疯了！"
 			}
 		]
+	},
+	'somethingForNothing': {
+		id: "somethingForNothing",
+		title: "Something for Nothing",
+		desc: "不劳而获<br>获得100水与100饱食。",
+		optionList: [
+			{
+				id: "yesOfCourse",
+				title: "好了好了我知道了。",
+				desc: "你坦然接受了作弊的事实。",
+				functionList: [
+					{
+						type: "pointAdd",
+						info: {
+							name: ["food","water"],
+							value: [100,100]
+						}
+					}
+				]
+			}
+		]
 	}
 }
