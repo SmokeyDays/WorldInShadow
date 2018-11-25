@@ -19,7 +19,7 @@ var showText = {
 	},
 	
 	printMessage: function(message){
-		var text = $('<div>').addClass('message-text').addClass('main-text-type').css('opacity', '0').text(message).prependTo('div#message-box');
+		var text = $('<div>'+message+'</div>').addClass('message-text').addClass('main-text-type').css('opacity', '0').prependTo('div#message-box');
 		text.animate({opacity: 0.8}, 500, 'linear', function() {
 			$(this).removeAttr('style');
 		});
@@ -47,8 +47,8 @@ var showText = {
 				}
 			}
 		}
-		var eventDesc = $('<div>').addClass('main-text-type').addClass('event-desc').text(eventOptions.desc).prependTo(eventBlock);
-		var eventTitle = $('<div>').addClass('event-title').text(eventOptions.title).prependTo(eventBlock);
+		var eventDesc = $('<div>'+eventOptions.desc+'</div>').addClass('main-text-type').addClass('event-desc').prependTo(eventBlock);
+		var eventTitle = $('<div>'+eventOptions.title+'</div>').addClass('event-title').prependTo(eventBlock);
 		showText.printMessage(eventOptions.logs);
 		eventBlock.animate({opacity: 1},1000,'linear',function() {$(this).removeAttr('style')});
 	}

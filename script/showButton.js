@@ -18,10 +18,9 @@ var showButton = {
 				}
 			}
 		}
-		var eventOption = $('<div>')
+		var eventOption = $('<div>'+buttonOptions.title+'</div>')
 		.addClass('event-option')
 		.addClass('event-option-shadow')
-		.text(buttonOptions.title)
 		if(typeof buttonOptions.functionList !== 'undefined'){
 			if(buttonOptions.functionList.length > 0){
 				for(var X in buttonOptions.functionList){
@@ -89,9 +88,8 @@ var showButton = {
 			}
 		});
 		if(typeof buttonOptions.desc !== 'undefined'){
-			var eventOptionDescription = $('<div>')
+			var eventOptionDescription = $('<div>'+buttonOptions.desc+'<div>')
 			.addClass('event-option-desc')
-			.text(buttonOptions.desc)
 			.appendTo(eventOption);
 		}
 		return eventOption;
