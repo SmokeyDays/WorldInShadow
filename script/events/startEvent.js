@@ -46,6 +46,15 @@ var startEvent = {
 				logs: "你决定试试树上的露珠。",
 				eventList: [
 					'findDrink-tryWaterOnLeaf'
+				],
+				functionList: [
+					{
+						type: "pointAdd",
+						info: {
+							name: ["energy"],
+							value: [-1]
+						}
+					}
 				]
 			},
 			{
@@ -55,6 +64,15 @@ var startEvent = {
 				logs: "你决定找找周围有什么可以解渴的水果。",
 				eventList: [
 					'findDrink-tryFruits'
+				],
+				functionList: [
+					{
+						type: "pointAdd",
+						info: {
+							name: ["energy"],
+							value: [-1]
+						}
+					}
 				]
 			},
 			{
@@ -64,13 +82,25 @@ var startEvent = {
 				logs: "你尝试挖一个坑来寻找地下水。",
 				eventList: [
 					'findDrink-tryBuildWells'
+				],
+				functionList: [
+					{
+						type: "pointAdd",
+						info: {
+							name: ["energy"],
+							value: [-4]
+						}
+					}
 				]
 			},
 			{
 				id: "observeAround",
 				title: "还是先观察一下四周吧。",
 				desc: "观察周围的情况。",
-				logs: "你决定在解渴之前先弄清楚现在自己所处的状况。"
+				logs: "你决定在解渴之前先弄清楚现在自己所处的状况。",
+				eventList: [
+					'getDirection'
+				]
 			}
 		]
 	},
@@ -88,6 +118,15 @@ var startEvent = {
 				eventList: [
 					'findDrink'
 				]
+			},
+			{
+				id: "observeAround",
+				title: "已经不那么渴了，先观察一下四周吧。",
+				desc: "观察周围的情况。（p.s.你真的不想知道你是渴还是不渴吗）",
+				logs: "你决定先弄清楚现在自己所处的状况。",
+				eventList: [
+					'getDirection'
+				]
 			}
 		]
 	},
@@ -102,6 +141,7 @@ var startEvent = {
 				title: "那就试着去摘它吧。",
 				desc: "尝试爬上树去摘浆果。",
 				logs: "你尝试爬树，体会到了当猴子的快感。"
+				
 			},
 			{
 				id: "findOtherFruits",
@@ -184,6 +224,15 @@ var startEvent = {
 							}
 						}
 					}
+				],
+				functionList: [
+					{
+						type: "pointAdd",
+						info: {
+							name: ["energy"],
+							value: [-1]
+						}
+					}
 				]
 			},
 			{
@@ -200,22 +249,89 @@ var startEvent = {
 				eventList: [
 					'findDrink'
 				]
+			},
+			{
+				id: "observeAround",
+				title: "还是先观察一下四周吧。",
+				desc: "观察周围的情况。",
+				logs: "你决定在解渴之前先弄清楚现在自己所处的状况。",
+				eventList: [
+					'getDirection'
+				]
 			}
 		]
 	},
 	'findDrink-tryBuildWells-findStone': {
 		title: "找到石料",
 		desc: "你在周围走了一圈，观察到了一些石头散落在地面上。你并不知道它们是哪里来的，但你觉得打磨一下可能就可以用来收集水了。",
-		logs: "你找到了一些坚硬的中等大小的石头。"
+		logs: "你找到了一些坚硬的中等大小的石头。",
+		functionList: [
+			{
+				type: "itemAdd",
+				info: {
+					name: ["stone"],
+					value: [10]
+				}
+			}
+		]
 	},
 	'findDrink-tryBuildWells-findStoneBlock': {
 		title: "找到石砖",
 		desc: "你一眼就发现了不远处躺着的石砖。石砖散落在森林里堆积的腐烂树叶上，显得那么显眼。石砖很平整，可以直接拿来使用，但你对这种似乎是非自然的物品感到了一丝诡异。",
-		logs: "你找到了一些平整的石砖。"
+		logs: "你找到了一些平整的石砖。",
+		optionList: [
+			{
+				id: "returnToBuildWells",
+				
+				functionList: [
+					{
+						type: "itemAdd",
+						info: {
+							name: ["stoneBlock"],
+							value: [10]
+						}
+					}
+				]
+			}
+		]
+		
 	},
 	'findDrink-tryBuildWells-findNothing': {
 		title: "野外求生不需要视力",
 		desc: "你在周围搜索了一圈，但是周围的地面都被阴影遮蔽着。你害怕离泥坑太远会丢失方向，所以没有走远。但什么有用的东西都没有找到。",
-		logs: "你一无所获。"
+		logs: "你一无所获。",
+		optionList: [
+			{
+				id: "findAgain",
+				title: "还是再找找吧",
+				desc: "尝试再次寻找。",
+				logs: "你不甘心，想要再找一次",
+				eventList: [
+					'findDrink-tryBuildWells-findNothing'
+				],
+				functionList: [
+					{
+						type: "pointAdd",
+						info: {
+							name: ["energy"],
+							value: [-1]
+						}
+					},
+				]
+			},
+			{
+				id: "giveUp",
+				title: "算了，还是想想其他办法吧",
+				desc: "尝试其他办法喝水",
+				logs: "你尝试寻找其他办法喝水",
+				eventList: [
+					'findDrink-tryBuildWells'
+				]
+			},
+		],
+		
+	},
+	'getDirection': {
+		title: "确定方向，探查四周"
 	}
 }
